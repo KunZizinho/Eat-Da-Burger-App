@@ -4,11 +4,14 @@ $( document ).ready(function(){
   $("#form-devour").on("submit", function(event){
     event.preventDefault();
     console.log("working    heeeeeeeeeeeeeeeeeeeeeeeeeeeeej")
+    // ovdje smo osigurali da povucemo id odabranog elementa 
     var id = $(this).children().val();
-    console.log("linija 8 burger,js u pub ", id)
+    console.log("linija 9 burger,js u pub ", id)
+    // deklarirali smo variablu u boolean i dali joj vrijednost true
     var newDevoured = true;
-    console.log("here line 10 ", newDevoured)
+    //te smo deklarirali objekt kojem smo dali svojstvu devoured vrijednost variable newDevoured
     var newState = { devoured: newDevoured };
+    //te smo ajaxom iz nase db prema id-u PUT metodom dodjelili odabranom burgeru novi boolean state
     $.ajax("/api/burgers/" + id, {
       type: "PUT",
       data: newState
