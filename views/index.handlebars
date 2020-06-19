@@ -1,30 +1,62 @@
-<h1>Burgers!</h1>
+
+<h1 class="pmarker text-center">EAT-DA-BURGER</h1>
+<img src="">
+<br><br>
+
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
-            <ul>
+        <div class="col-sm-6 text-center">
+            <h2 class="pmarker">Uneaten Burger List</h2>
+
+            
                 {{#each burgers}}
                 {{#unless devoured}}
-                {{> burgers/burger-block hungry=true}}
+                <div>
+                    <p>{{this.id}}.{{this.burger_name}}</p>
+                </div>
+                {{!-- <button class="devour btn btn-info button-font" data-id= {{this.id}} data-newdevoured={{this.devoured}}>
+                    DEVOUR!
+                </button> --}}
+                <form id="form-devour">
+                
+                    {{!-- <label for="ca">Burger Name:</label> --}}
+                    <input class="burger_id" name="burger_name" type="hidden" value={{this.id}}>
+                
+                    <button type="submit" class="btn btn-submit button-font">Devour It</button>
+                </form>
                 {{/unless}}
                 {{/each}}
-            </ul>
+        
         </div>
 
-        <div class="col-md-4">
-            <h3>Eat Da Burger!</h3>
-        </div>
+        <div class="col-sm-6 text-center">
+            <h2 class="pmarker">Devoured Burgers</h2>
 
-        <div class="col-md-4">
-            <ul>
+            
                 {{#each burgers}}
                 {{#if devoured}}
-                {{> burgers/burger-block devoured=false}}
+            <div>
+                <p>{{this.id}}.{{this.burger_name}}</p>
+            </div>
+                
+            
                 {{/if}}
                 {{/each}}
-            </ul>
         </div>
+    </div>
+    <br>
 
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <h2 class="pmarker">Add a Burger to the List</h2>
+            <form id="form" action="/api/burger" method="POST">
+                
+                    <label for="ca">Burger Name:</label>
+                    <input type="text" id="enterText" name="burger_name">
+
+                <button type="submit" class="btn btn-submit button-font">Add Burger</button>
+            </form>
+        </div>
     </div>
 </div>
 
