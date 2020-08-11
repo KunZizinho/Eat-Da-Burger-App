@@ -9,3 +9,7 @@ h2{
 body{
     background-color: yellow;
 }
+
+button{
+    border: lightseagreen, solid, 1px;
+}

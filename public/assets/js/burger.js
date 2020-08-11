@@ -23,3 +23,8 @@ $( document ).ready(function(){
 
   
 });
+
+
+// after minifying
+
+// console.log("burger js "),$(document).ready(function(){$("#form-devour").on("submit",function(a){a.preventDefault(),console.log("working    heeeeeeeeeeeeeeeeeeeeeeeeeeeeej");var b=$(this).children().val();console.log("linija 9 burger,js u pub ",b);$.ajax("/api/burgers/"+b,{type:"PUT",data:{devoured:!0}}).then(function(){console.log("linija 16 burger.js pub ",!0),location.reload()})})});

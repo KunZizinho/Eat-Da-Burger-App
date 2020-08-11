@@ -52,11 +52,10 @@ var orm = {
     var queryString = "SELECT * FROM " + tableInput + ";";
     connection.query(queryString, function(err, result) {
       if (err) {
-        console.log("linija 55 orm-a")
         throw err;
       }
       cb(result);
-      console.log("linija 59 orm-a")
+      console.log("linija 59 orm-a", result)
     });
   },
   create: function(table, cols, vals, cb) {
